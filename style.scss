@@ -34,9 +34,6 @@ ul {
 
 	li a {
 		text-decoration: none;
-		color: $color-text;
-		font-weight: 400;
-		margin-left: 2px;
 	}
 
 	a:hover {
@@ -46,22 +43,51 @@ ul {
 
 // Navbar
 
-nav,
-nav ul {
-	display: flex;
-	justify-content: space-between;
-}
-
 nav {
+	display: flex;
+	justify-content: center;
+
 	position: fixed;
 	top: 0;
 	width: 100%;
-	padding: 0 30px;
 	background-color: #fff;
 }
 
-nav ul {
-	align-items: stretch;
+.nav-container {
+	display: flex;
+	justify-content: space-between;
+
+	padding: 0 30px;
+
+	@media (max-width: 991px) {
+		width: 690px;
+		padding: 0;
+	}
+
+	@media (max-width: 767px) {
+		width: 510px;
+	}
+
+	@media (max-width: 575px) {
+		width: 100%;
+		padding: 0 15px;
+	}
+}
+
+svg {
+	display: none;
+	height: 30px;
+	width: 30px;
+	align-self: center;
+
+	@media (max-width: 991px) {
+		display: block;
+		margin-right: 10px;
+	}
+}
+
+.nav-container ul {
+	display: flex;
 
 	li {
 		padding: 24px 22px;
@@ -73,5 +99,60 @@ nav ul {
 		font-weight: 400;
 		letter-spacing: 3px;
 		line-height: 22px;
+		color: $color-text;
+		font-weight: 400;
+		margin-left: 2px;
 	}
+
+	@media (max-width: 991px) {
+		display: none;
+	}
+}
+
+// Hamburger button animation: Credits to Mikael Ainalem https://codepen.io/ainalem/pen/LJYRxz
+
+.ham {
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	transition: transform 400ms;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.hamRotate.active {
+	transform: rotate(45deg);
+}
+.hamRotate180.active {
+	transform: rotate(180deg);
+}
+.line {
+	fill: none;
+	transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+	stroke: $color-text;
+	stroke-width: 5.5;
+	stroke-linecap: round;
+}
+
+.ham8 .top {
+	stroke-dasharray: 40 160;
+}
+.ham8 .middle {
+	stroke-dasharray: 40 142;
+	transform-origin: 50%;
+	transition: transform 400ms;
+}
+.ham8 .bottom {
+	stroke-dasharray: 40 85;
+	transform-origin: 50%;
+	transition: transform 400ms, stroke-dashoffset 400ms;
+}
+.ham8.active .top {
+	stroke-dashoffset: -64px;
+}
+.ham8.active .middle {
+	transform: rotate(90deg);
+}
+.ham8.active .bottom {
+	stroke-dashoffset: -64px;
 }
