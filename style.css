@@ -33,6 +33,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0 30px;
+  width: 100%;
 }
 @media (max-width: 991px) {
   .nav-container {
