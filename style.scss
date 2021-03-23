@@ -27,6 +27,10 @@ html {
 
 body {
 	margin-top: 70px;
+
+	@media (max-width: 991px) {
+		margin-top: 0;
+	}
 }
 
 ul {
@@ -52,6 +56,10 @@ nav {
 	top: 0;
 	width: 100%;
 	background-color: #fff;
+
+	@media (max-width: 991px) {
+		position: static;
+	}
 }
 
 .nav-container {
@@ -63,7 +71,6 @@ nav {
 
 	@media (max-width: 991px) {
 		width: 690px;
-		padding: 0;
 	}
 
 	@media (max-width: 767px) {
@@ -114,10 +121,45 @@ nav div ul {
 // Display navbar menu when ham button is clicked
 
 .show-menu {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
+	@media (max-width: 991px) {
+		display: grid;
+		grid-template-areas:
+			'canvas-logo ham-button'
+			'items-list items-list';
+
+		img {
+			grid-area: canvas-logo;
+		}
+
+		svg {
+			grid-area: ham-button;
+		}
+
+		ul {
+			grid-area: items-list;
+		}
+	}
+}
+
+.show-items {
+	@media (max-width: 991px) {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		width: 100%;
+
+		li {
+			padding: 14px 5px;
+			width: 100%;
+		}
+
+		a {
+			letter-spacing: 1px;
+			font-weight: 700;
+			font-size: 13px;
+		}
+	}
 }
 
 // Hamburger button animation: Credits to Mikael Ainalem https://codepen.io/ainalem/pen/LJYRxz
@@ -140,8 +182,8 @@ nav div ul {
 .line {
 	fill: none;
 	transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-	stroke: $color-text;
-	stroke-width: 5.5;
+	stroke: #333;
+	stroke-width: 5;
 	stroke-linecap: round;
 }
 
