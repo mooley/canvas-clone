@@ -9,6 +9,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  margin-top: 70px;
+}
+
 ul {
   list-style-type: none;
   align-items: center;
@@ -66,13 +70,13 @@ svg {
   }
 }
 
-.nav-container ul {
+nav div ul {
   display: flex;
 }
-.nav-container ul li {
+nav div ul li {
   padding: 24px 22px;
 }
-.nav-container ul a {
+nav div ul a {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -83,9 +87,16 @@ svg {
   margin-left: 2px;
 }
 @media (max-width: 991px) {
-  .nav-container ul {
+  nav div ul {
     display: none;
   }
+}
+
+.show-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .ham {
