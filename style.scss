@@ -69,8 +69,13 @@ nav {
 	padding: 0 30px;
 	width: 100%;
 
+	overflow: hidden;
+	height: 70px;
+	transition: height 0.2s linear;
+
 	@media (max-width: 991px) {
 		width: 690px;
+		padding: 0;
 	}
 
 	@media (max-width: 767px) {
@@ -98,6 +103,10 @@ svg {
 nav div ul {
 	display: flex;
 
+	@media (max-width: 991px) {
+		display: none;
+	}
+
 	li {
 		padding: 24px 22px;
 	}
@@ -112,15 +121,12 @@ nav div ul {
 		font-weight: 400;
 		margin-left: 2px;
 	}
-
-	@media (max-width: 991px) {
-		display: none;
-	}
 }
 
 // Display navbar menu when ham button is clicked
 
 .show-menu {
+	height: 375px;
 	@media (max-width: 991px) {
 		display: grid;
 		grid-template-areas:
@@ -149,17 +155,31 @@ nav div ul {
 		justify-content: space-between;
 		width: 100%;
 
+		position: static;
+		visibility: visible;
+
 		li {
 			padding: 14px 5px;
 			width: 100%;
+		}
+
+		li:not(:first-child) {
+			border-top: solid 1px #eee;
 		}
 
 		a {
 			letter-spacing: 1px;
 			font-weight: 700;
 			font-size: 13px;
+			margin-left: 0;
 		}
 	}
+}
+
+// Show home button active when the user is in the home section
+
+.home-button-active {
+	color: $color-highlight;
 }
 
 // Hamburger button animation: Credits to Mikael Ainalem https://codepen.io/ainalem/pen/LJYRxz

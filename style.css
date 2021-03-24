@@ -48,10 +48,14 @@ nav {
   justify-content: space-between;
   padding: 0 30px;
   width: 100%;
+  overflow: hidden;
+  height: 70px;
+  transition: height 0.2s linear;
 }
 @media (max-width: 991px) {
   .nav-container {
     width: 690px;
+    padding: 0;
   }
 }
 @media (max-width: 767px) {
@@ -82,6 +86,11 @@ svg {
 nav div ul {
   display: flex;
 }
+@media (max-width: 991px) {
+  nav div ul {
+    display: none;
+  }
+}
 nav div ul li {
   padding: 24px 22px;
 }
@@ -95,12 +104,10 @@ nav div ul a {
   font-weight: 400;
   margin-left: 2px;
 }
-@media (max-width: 991px) {
-  nav div ul {
-    display: none;
-  }
-}
 
+.show-menu {
+  height: 375px;
+}
 @media (max-width: 991px) {
   .show-menu {
     display: grid;
@@ -124,16 +131,26 @@ nav div ul a {
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
+    position: static;
+    visibility: visible;
   }
   .show-items li {
     padding: 14px 5px;
     width: 100%;
   }
+  .show-items li:not(:first-child) {
+    border-top: solid 1px #eee;
+  }
   .show-items a {
     letter-spacing: 1px;
     font-weight: 700;
     font-size: 13px;
+    margin-left: 0;
   }
+}
+
+.home-button-active {
+  color: #1abc9c;
 }
 
 .ham {
