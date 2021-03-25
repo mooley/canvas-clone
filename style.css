@@ -54,8 +54,14 @@ nav {
 }
 @media (max-width: 991px) {
   .nav-container {
+    flex-direction: column;
     width: 690px;
     padding: 0;
+  }
+  .nav-container .logo-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 @media (max-width: 767px) {
@@ -109,18 +115,18 @@ nav div ul a {
   height: 375px;
 }
 @media (max-width: 991px) {
-  .show-menu {
-    display: grid;
-    grid-template-areas: "canvas-logo ham-button" "items-list items-list";
+  .show-menu li {
+    padding: 14px 5px;
+    width: 100%;
   }
-  .show-menu img {
-    grid-area: canvas-logo;
+  .show-menu li:not(:first-child) {
+    border-top: solid 1px #eee;
   }
-  .show-menu svg {
-    grid-area: ham-button;
-  }
-  .show-menu ul {
-    grid-area: items-list;
+  .show-menu a {
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 13px;
+    margin-left: 0;
   }
 }
 
@@ -133,19 +139,6 @@ nav div ul a {
     width: 100%;
     position: static;
     visibility: visible;
-  }
-  .show-items li {
-    padding: 14px 5px;
-    width: 100%;
-  }
-  .show-items li:not(:first-child) {
-    border-top: solid 1px #eee;
-  }
-  .show-items a {
-    letter-spacing: 1px;
-    font-weight: 700;
-    font-size: 13px;
-    margin-left: 0;
   }
 }
 

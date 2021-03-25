@@ -8,7 +8,7 @@ document.getElementById('ham-menu').addEventListener('click', function () {
 	document.getElementById('navigation-menu').classList.toggle('show-items');
 });
 
-window.addEventListener('resize', function () {
+function closeAll() {
 	let screenWidth = window.innerWidth;
 
 	if (screenWidth > 991) {
@@ -20,17 +20,15 @@ window.addEventListener('resize', function () {
 
 		document.getElementById('nav-container').classList.remove('show-menu');
 	}
-});
+}
+
+// Highlight home button when the home section is visible
+
+window.addEventListener('resize', closeAll);
 
 let homeButton = document.getElementById('home-button');
 
-if (window.scrollY < 50) {
-	console.log(window.scrollY);
-	homeButton.classList.add('home-button-active');
-}
-
 window.addEventListener('scroll', function () {
-	console.log('scrolling');
 	if (window.scrollY < 50) {
 		window.setTimeout(function () {
 			homeButton.classList.add('home-button-active');
