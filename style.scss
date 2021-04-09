@@ -1,3 +1,36 @@
+// Mixins
+
+@mixin debug {
+	outline: solid 1px red;
+}
+
+// CSS Variables
+
+:root {
+	--card-width: 416.667px;
+	--cards-gap: 20px;
+
+	@media (max-width: 1439px) {
+		--card-width: 356.667px;
+	}
+
+	@media (max-width: 1199px) {
+		--card-width: 296.667px;
+	}
+
+	@media (max-width: 991px) {
+		--card-width: 335px;
+	}
+
+	@media (max-width: 767px) {
+		--card-width: 510px;
+	}
+
+	@media (max-width: 575px) {
+		--card-width: 100%;
+	}
+}
+
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
@@ -19,7 +52,6 @@ $color-white: #fff;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	// outline: solid 1px red;
 }
 
 html {
@@ -245,6 +277,7 @@ nav div ul {
 	text-align: center;
 	width: 700px;
 	margin-top: 1px;
+	margin-bottom: 80px;
 
 	span {
 		color: $color-highlight;
@@ -268,14 +301,15 @@ nav div ul {
 
 #info-cards-container {
 	display: flex;
-	gap: 20px;
+	gap: var(--cards-gap);
 	width: 1290px;
+	height: 341px;
 
 	overflow-x: auto;
 	flex-shrink: 0;
 
-	outline: 1px solid red;
 	-webkit-overflow-scrolling: touch;
+	scroll-snap-type: x mandatory;
 
 	@media (max-width: 1439px) {
 		width: 1110px;
@@ -302,32 +336,66 @@ nav div ul {
 	}
 }
 
+@keyframes cardScroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(
+			calc((var(--card-width) * -4 + var(--cards-gap) * -4))
+		);
+	}
+	// 19% {
+	// 	transform: translateX();
+	// }
+	// 20% {
+	// 	transform: translateX();
+	// }
+	// 39% {
+	// 	transform: translateX();
+	// }
+	// 40% {
+	// 	transform: translateX();
+	// }
+	// 59% {
+	// 	transform: translateX();
+	// }
+	// 60% {
+	// 	transform: translateX();
+	// }
+	// 79% {
+	// 	transform: translateX();
+	// }
+	// 80% {
+	// 	transform: translateX();
+	// }
+	// 99% {
+	// 	transform: translateX();
+	// }
+	// 100% {
+	// 	transform: translateX();
+	// }
+}
+
 .info-card {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	width: 416.667px;
-	padding-right: 20px;
+	gap: 1rem;
+
+	width: var(--card-width);
+	height: 100%;
+	flex-shrink: 0;
+
+	scroll-snap-align: start;
+
+	animation: cardScroll 10s linear infinite;
 
 	background-color: $color-white;
+}
 
-	@media (max-width: 1439px) {
-		width: 356.667px;
-	}
-
-	@media (max-width: 1199px) {
-		width: 296.667px;
-	}
-
-	@media (max-width: 991px) {
-		width: 335px;
-	}
-
-	@media (max-width: 767px) {
-		width: 510px;
-	}
-
-	@media (max-width: 575px) {
-		width: 100%;
-	}
+.info-card > * {
+	display: inline-block;
+	white-space: nowrap;
 }
