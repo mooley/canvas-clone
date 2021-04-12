@@ -32,6 +32,8 @@
 }
 
 // Fonts
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
 // Font families
@@ -303,13 +305,15 @@ nav div ul {
 	display: flex;
 	gap: var(--cards-gap);
 	width: 1290px;
-	height: 341px;
+	height: 359px;
 
 	overflow-x: auto;
 	flex-shrink: 0;
 
 	-webkit-overflow-scrolling: touch;
 	scroll-snap-type: x mandatory;
+	user-select: none;
+	scroll-behavior: smooth;
 
 	@media (max-width: 1439px) {
 		width: 1110px;
@@ -336,61 +340,22 @@ nav div ul {
 	}
 }
 
-@keyframes cardScroll {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(
-			calc((var(--card-width) * -4 + var(--cards-gap) * -4))
-		);
-	}
-	// 19% {
-	// 	transform: translateX();
-	// }
-	// 20% {
-	// 	transform: translateX();
-	// }
-	// 39% {
-	// 	transform: translateX();
-	// }
-	// 40% {
-	// 	transform: translateX();
-	// }
-	// 59% {
-	// 	transform: translateX();
-	// }
-	// 60% {
-	// 	transform: translateX();
-	// }
-	// 79% {
-	// 	transform: translateX();
-	// }
-	// 80% {
-	// 	transform: translateX();
-	// }
-	// 99% {
-	// 	transform: translateX();
-	// }
-	// 100% {
-	// 	transform: translateX();
-	// }
+#info-cards-container::-webkit-scrollbar {
+	width: 0;
 }
 
 .info-card {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: start;
 	align-items: center;
-	gap: 1rem;
 
+	padding: 0 64px;
 	width: var(--card-width);
 	height: 100%;
 	flex-shrink: 0;
 
 	scroll-snap-align: start;
-
-	animation: cardScroll 10s linear infinite;
 
 	background-color: $color-white;
 }
@@ -398,4 +363,76 @@ nav div ul {
 .info-card > * {
 	display: inline-block;
 	white-space: nowrap;
+	color: $color-text;
+}
+
+.card-icon {
+	fill: $color-highlight;
+	margin: 71px 11px 21px 0;
+	height: 57px;
+}
+
+.product-description-title {
+	font-family: $font-source-sans-pro;
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 7px;
+}
+
+.product-description-text {
+	font-size: 1rem;
+	font-family: $font-roboto;
+	font-weight: 400;
+
+	height: 30px;
+	margin-bottom: 31px;
+	height: 28px;
+}
+
+.view-more-button {
+	background-color: $color-text;
+	color: $color-white;
+	padding: 7px 17px;
+	line-height: 20px;
+	border: none;
+	border-radius: 3px;
+	text-transform: uppercase;
+	font-size: $text-font-size;
+	font-weight: 600;
+	font-family: $font-roboto;
+	letter-spacing: 1px;
+}
+
+#browser-icon {
+	width: 73.34443px;
+	margin-left: 10px;
+}
+
+#paintbrush-icon {
+	width: 38.5px;
+}
+
+#envelope-icon {
+	width: 66.5px;
+	margin-left: 3px;
+}
+
+#laptop-icon {
+	width: 73.35px;
+	margin-left: 10px;
+}
+
+#book-open-icon {
+	width: 74px;
+	margin-left: 10px;
+}
+
+#slider-navigation {
+	display: flex;
+	gap: 2rem;
+
+	a {
+		font-size: 50px;
+	}
 }

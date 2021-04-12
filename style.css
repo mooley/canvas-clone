@@ -278,11 +278,13 @@ nav div ul a {
   display: flex;
   gap: var(--cards-gap);
   width: 1290px;
-  height: 341px;
+  height: 359px;
   overflow-x: auto;
   flex-shrink: 0;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
+  user-select: none;
+  scroll-behavior: smooth;
 }
 @media (max-width: 1439px) {
   #info-cards-container {
@@ -313,31 +315,96 @@ nav div ul a {
   }
 }
 
-@keyframes cardScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc((var(--card-width) * -4 + var(--cards-gap) * -4)));
-  }
+#info-cards-container::-webkit-scrollbar {
+  width: 0;
 }
+
 .info-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  gap: 1rem;
+  padding: 0 64px;
   width: var(--card-width);
   height: 100%;
   flex-shrink: 0;
   scroll-snap-align: start;
-  animation: cardScroll 10s linear infinite;
   background-color: #fff;
 }
 
 .info-card > * {
   display: inline-block;
   white-space: nowrap;
+  color: #444;
+}
+
+.card-icon {
+  fill: #1abc9c;
+  margin: 71px 11px 21px 0;
+  height: 57px;
+}
+
+.product-description-title {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 7px;
+}
+
+.product-description-text {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 31px;
+  height: 28px;
+}
+
+.view-more-button {
+  background-color: #444;
+  color: #fff;
+  padding: 7px 17px;
+  line-height: 20px;
+  border: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+}
+
+#browser-icon {
+  width: 73.34443px;
+  margin-left: 10px;
+}
+
+#paintbrush-icon {
+  width: 38.5px;
+}
+
+#envelope-icon {
+  width: 66.5px;
+  margin-left: 3px;
+}
+
+#laptop-icon {
+  width: 73.35px;
+  margin-left: 10px;
+}
+
+#book-open-icon {
+  width: 74px;
+  margin-left: 10px;
+}
+
+#slider-navigation {
+  display: flex;
+  gap: 2rem;
+}
+#slider-navigation a {
+  font-size: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
