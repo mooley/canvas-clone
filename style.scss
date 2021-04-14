@@ -307,13 +307,15 @@ nav div ul {
 	width: 1290px;
 	height: 359px;
 
-	overflow-x: auto;
+	overflow-x: scroll;
 	flex-shrink: 0;
 
 	-webkit-overflow-scrolling: touch;
 	scroll-snap-type: x mandatory;
 	user-select: none;
 	scroll-behavior: smooth;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 
 	@media (max-width: 1439px) {
 		width: 1110px;
@@ -341,7 +343,7 @@ nav div ul {
 }
 
 #info-cards-container::-webkit-scrollbar {
-	width: 0;
+	display: none;
 }
 
 .info-card {
@@ -404,7 +406,8 @@ nav div ul {
 	letter-spacing: 1px;
 }
 
-#browser-icon {
+#browser-icon,
+#browser-icon2 {
 	width: 73.34443px;
 	margin-left: 10px;
 }
@@ -418,12 +421,14 @@ nav div ul {
 	margin-left: 3px;
 }
 
-#laptop-icon {
+#laptop-icon,
+#laptop-icon2 {
 	width: 73.35px;
 	margin-left: 10px;
 }
 
-#book-open-icon {
+#book-open-icon,
+#book-open-icon2 {
 	width: 74px;
 	margin-left: 10px;
 }
@@ -435,4 +440,8 @@ nav div ul {
 	a {
 		font-size: 50px;
 	}
+}
+
+.red-button {
+	color: red;
 }

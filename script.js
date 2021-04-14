@@ -37,3 +37,38 @@ window.addEventListener('scroll', function () {
 		homeButton.classList.remove('home-button-active');
 	}
 });
+
+// Slider functionality
+
+const cardsContainer = document.getElementById('info-cards-container');
+
+const browserCard = document.getElementById('browser-card');
+
+const testButton = document.getElementById('test-button');
+
+cardsContainer.addEventListener('scroll', function () {
+	let browserPosition = browserCard.getBoundingClientRect().x;
+
+	// console.log(browserPosition);
+});
+
+// Behaviour for buttons
+
+testButton.addEventListener('click', function () {
+	cardsContainer.scrollLeft += 296.667;
+	// console.log(cardsContainer.scrollLeft);
+});
+
+cardsContainer.addEventListener('mousedown', function (e) {
+	let initialMousePosition = e.clientX;
+	cardsContainer.onmousemove = function (e) {
+		let draggingDistance = e.clientX - initialMousePosition;
+
+		console.log(draggingDistance);
+		cardsContainer.scrollLeft -= draggingDistance;
+	};
+});
+
+cardsContainer.addEventListener('mouseup', function (e) {
+	cardsContainer.onmousemove = null;
+});
